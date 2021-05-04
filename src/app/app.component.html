@@ -1,0 +1,27 @@
+<mat-toolbar class="toolbar mat-elevation-z6" color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+</mat-toolbar>
+
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" [ngStyle]="{width: '300px', padding: '40px', height: 'calc(100% - 64px)', marginTop: '64px'}" closed>
+      <mat-list>
+        <mat-list-item *ngFor="let item of sideNavItems"
+                          [ngStyle]="{cursor: 'pointer'}"
+                          (click)="sidenav.close()"
+                          [disableRipple]="false"
+                          [routerLink]="item.link"> {{ item.name }} </mat-list-item>
+      </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <header>
+      <h1>{{ displayPath }}</h1>
+    </header>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,26 @@
+header {
+    --p: 40px;
+    background-color: #3f51b5;
+    width: 100%;
+    padding-top: 64px;
+    height: 80px;
+
+    h1 {
+        font-weight: 300;
+        color: white;
+        margin: 0;
+        padding: 22px 20px
+    }
+}
+
+.container {
+    --p: 40px;
+    padding: var(--p) var(--p) 0 var(--p);
+    background-color: #fafafa;
+    height: calc(100vh - 3 * var(--p) - 80px)
+}
+
+.toolbar {
+    position: fixed;
+    z-index: 100;
+}

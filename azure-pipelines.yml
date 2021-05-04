@@ -14,7 +14,9 @@ variables:
   imageRepository: 'fruitsfrontend'
   containerRegistry: 'exatechtest.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: |
+    $(Build.BuildId)
+    latest
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'

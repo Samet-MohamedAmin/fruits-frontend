@@ -1,5 +1,5 @@
 # base image
-FROM docker.io/library/node:16.0.0-alpine3.13
+FROM docker.io/library/node:16.0.0-alpine3.13 AS build
 
 # # install chrome for protractor tests
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -15,17 +15,17 @@ ENV PATH /app/node_modules/.bin:$PATH
 # install and cache app dependencies
 COPY package.json /app/package.json
 RUN npm install
-RUN npm install -g @angular/cli@7.3.9
+# RUN npm install -g @angular/cli@11.2.10
 
 # add app
 COPY . /app
 
 # run tests
-RUN ng test --watch=false
-RUN ng e2e --port 4202
+# RUN ng test --watch=false
+# RUN ng e2e --port 4202
 
 # generate build
-RUN ng build --output-path=dist
+RUN npm run build --output-path=dist
 
 ############
 ### prod ###

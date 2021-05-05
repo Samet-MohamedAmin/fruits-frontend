@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  BACKEND_URL: `${process.env.BACKEND_URL}`
+  BACKEND_URL: "fruitsbackend.exatech.dns:8080"
 };

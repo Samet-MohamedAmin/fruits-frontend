@@ -9,11 +9,8 @@ import { Observable, of } from 'rxjs';
 })
 export class FruitsService {
   PATH_FRUITS = "/fruits"
-  BACKEND_URL: String;
 
-  constructor(private http: HttpClient){
-    this.BACKEND_URL = 
-  }
+  constructor(private http: HttpClient){}
 
   sendFruit(fruit: Fruit): Observable<Fruit> {
     const URL:string = environment.BACKEND_URL + this.PATH_FRUITS;
